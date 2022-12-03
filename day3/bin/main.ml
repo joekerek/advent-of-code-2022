@@ -30,9 +30,9 @@ let group_by_3 lst =
   let f (all, current, size) x =
     if size = 3 then ((List.rev current) :: all, [x], 1)
     else (all, x::current, size + 1)
-in
-let (groups, last, _) = List.fold_left f accum lst in
-List.rev (List.rev last :: groups)
+  in
+  let (groups, last, _) = List.fold_left f accum lst in
+  List.rev (List.rev last :: groups)
 
 let part1 =
   let filecontents = read_whole_file file in
