@@ -66,16 +66,13 @@ let part1 =
   let filecontents = read_whole_file file in
   let contents_list = String.split_on_char '\n' filecontents in
   let intersections = List.map compute_intersect contents_list in
-  let integers = List.map (fun intersects -> if intersects then 1 else 0) intersections in
-  integers
+  List.filter (fun intersects -> intersects) intersections
 
 let part2 =
   let filecontents = read_whole_file file in
   let contents_list = String.split_on_char '\n' filecontents in
   let intersections = List.map compute_intersect2 contents_list in
-  let integers = List.map (fun intersects -> if intersects then 1 else 0) intersections in
-  integers
+  List.filter (fun intersects -> intersects) intersections
 
 let () =
-  let sum = List.fold_left (fun a b -> a + b) 0 part2 in
-  print_endline (string_of_int sum)
+  print_endline (string_of_int (List.length part2))
